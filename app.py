@@ -8,28 +8,10 @@ import pydantic
 from flask import Flask, request, jsonify
 import logging
 
+from gears.core import User, Foo, Bar
+
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(message)s')
 log = logging.getLogger(__name__)
-
-
-class Foo(pydantic.BaseModel):
-    count: int
-    size: float = None
-
-
-class Bar(pydantic.BaseModel):
-    apple = 'x'
-    banana = 'y'
-    foos: List[Foo] = []
-
-
-class User(pydantic.BaseModel):
-    id: int
-    name: str = "John Wick"
-    signup_at: Optional[datetime] = datetime.utcnow()  # 默认值？
-    friends: List[int] = []
-    size: float = None
-
 
 app = Flask(__name__)
 
