@@ -1,3 +1,3 @@
-module simple-is-better.xyz/gears
+module gitlab.com/emctoo/gears
 
 go 1.17
